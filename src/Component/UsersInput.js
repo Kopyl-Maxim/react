@@ -11,11 +11,6 @@ export const UsersInput = ({toggle, spell}) => {
         db.collection('Users').doc(spell.id).set({...spell, name, lastname, date, login})
         toggle()
     }
-    const onDelete = () => {
-        const db = firebase.firestore()
-        db.collection('Users').doc(spell.id).delete()
-        toggle()
-    }
     return (
         <div>
             <form>
@@ -40,7 +35,6 @@ export const UsersInput = ({toggle, spell}) => {
 
                 </label>
                 <div className="dl-ap">
-                    <button className="but" onClick={onDelete}>Delete</button>
                     <button className="but" onClick={onUpdate}>Update</button>
                 </div>
             </form>
